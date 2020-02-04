@@ -1,0 +1,46 @@
+back()---->>>>> we can also use it here rout('route name'), where we want to show it .
+\==========================================================================
+===========================================================================
+		========================================
+
+
+        if ($category) {
+                $notification=array(
+                    'messege'=>'Successfully Category Added',
+                    'alert-type'=>'success'              
+                );
+                return Redirect()->back()->with($notification);
+        } else {
+
+                $notification=array(
+                    'messege'=>'Error Category Not Added',
+                    'alert-type'=>'error'      
+                );
+                return Redirect()->back()->with($notification);
+           
+        }
+========================================================
+=========================================================
+<script>
+        @if(Session::has('messege'))
+            var type ="{{Session::get('alert-type','info')}}"
+            switch(type){
+                case 'info':
+                    toastr.info(" {{Session::get('messege')}} ");
+                    break;
+
+                case 'success':
+                    toastr.success(" {{Session::get('messege')}} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{Session::get('messege')}} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{Session::get('messege')}} ");
+                    break;
+            }
+        @endif
+  </script>
+
